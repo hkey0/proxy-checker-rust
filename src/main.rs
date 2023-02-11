@@ -33,9 +33,7 @@ async fn main() {
 }
 
 
-async fn check_proxy(proxys: String) -> bool{
-    print!("{:#?}", proxys);
-
+async fn check_proxy(proxys: String) -> bool {
     match reqwest::Proxy::https(format!("socks5://{proxys}", proxys=proxys)) {
         Ok(maproxy) => {
             let client = reqwest::Client::builder()
